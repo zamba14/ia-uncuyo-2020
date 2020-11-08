@@ -78,19 +78,19 @@ Acto seguido se corre el método aStar, donde se encuentra el algoritmo de búsq
 		
 		Una vez descubierto el camino, la función make_path tomará cada nodo en el diccionario came_from y lo coloreará en verde
 		
-		#Heurística propuesta
+#Heurística propuesta
 		
-		Dado que estamos en una grilla de NxN donde cada nodo almacena su posición de X e Y y las posiciones de X e Y de los nodos inicial y final son conocidas en todo momento,
-		es fácil asumir que la distancia mínima entre un punto N y el nodo final E es el resultado absoluto de x(N)- x(E) y de y(N)-y(E)
+Dado que estamos en una grilla de NxN donde cada nodo almacena su posición de X e Y y las posiciones de X e Y de los nodos inicial y final son conocidas en todo momento,
+es fácil asumir que la distancia mínima entre un punto N y el nodo final E es el resultado absoluto de x(N)- x(E) y de y(N)-y(E)
 		
 		def h(p1,p2):
 		x1, y1 = p1
 		x2, y2 = p2
 		return abs(x1-x2) + abs(y1-y2)
 		
-		Esta heurística se conoce como Distancia Manhattan o Geometría del Taxista, la cual es admisible y consistente.
+Esta heurística se conoce como Distancia Manhattan o Geometría del Taxista, la cual es admisible y consistente.
 		
-		En todos los casos, la distancia nunca será menor a esta relación entre los dos puntos. Sí puede ser mayor (en caso de que el camino óptimo esté bloqueado por un obstáculo) y
-		es consistente el costo de alcanzar el objetivo desde un nodo no es mayor al costo de expandirse a un nodo vecino y alcanzarlo desde allí. 
+En todos los casos, la distancia nunca será menor a esta relación entre los dos puntos. Sí puede ser mayor (en caso de que el camino óptimo esté bloqueado por un obstáculo) y
+es consistente el costo de alcanzar el objetivo desde un nodo no es mayor al costo de expandirse a un nodo vecino y alcanzarlo desde allí. 
 
 
