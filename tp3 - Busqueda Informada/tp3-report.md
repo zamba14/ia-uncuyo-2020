@@ -14,14 +14,13 @@ A partir de la línea 139 se encuentra la ejecución del algoritmo. Comienza lla
 termcolor.
 
 Luego se inicializa una variable grid_size que contendrá el tamaño de la grilla a generar, pasándola como argumento a las funciones make_grid y make_obstacules
-La primera nos devolverá la grilla en sí, generando un objeto de clase Node en una matriz de grid_size * grid_size e inicializando todos los nodos a con tipo "white" (que corresponde al
-nodo abierto). El segundo método genera aleatoriamente grid_size*5 obstáculos (tipo "red") que serán las barreras que marcarán el sendero por el cual deba moverse la solución; más los 
-puntos de inicio y fin también aleatoriamente. (Se utilizó numpy.random.randint para generar seudoaleatoriamente los valores de x e y de cada nodo obstáculo, inicio y fin)
+La primera nos devolverá la grilla en sí, generando un objeto de clase Node en una matriz de grid_size * grid_size e inicializando todos los nodos a con tipo "white" (que corresponde al nodo abierto). 
+El segundo método genera aleatoriamente grid_size x 5 obstáculos (tipo "red") que serán las barreras que marcarán el sendero por el cual deba moverse la solución; más los puntos de inicio y fin también aleatoriamente. (Se utilizó numpy.random.randint para generar seudoaleatoriamente los valores de x e y de cada nodo obstáculo, inicio y fin)
 
 Acto seguido se corre el método aStar, donde se encuentra el algoritmo de búsqueda informada.
 
-__recibe como parámetros la grilla generada más los nodos de inicio y fin__
-def aStar(grid, start, end):
+	__recibe como parámetros la grilla generada más los nodos de inicio y fin__
+	def aStar(grid, start, end):
 	__inicializa una cuenta para resolver la paridad entre dos nodos que tengan el mismo valor de f(n), almacenando en qué orden fue añadido a la lista__
     count = 0
 	__inicializa una PriorityQueue para llevar el set de nodos a explorar__
@@ -30,7 +29,7 @@ def aStar(grid, start, end):
     open_set.put((0,count,start))
 	__inicializa un diccionario para almacenar desde qué nodo fue expandido cada hijo, lo cual será relevante para revelar el camino más corto__
     came_from = {}
-	__inicializa en infinito una matriz con los valores de g(n) y f(n) donde g(n) es el costo de transitar a cada nodo y f(n) la suma del costo +  la heurística de cada nodo__
+	__inicializa en infinito una matriz con los valores de g(n) y f(n) donde g(n) es el costo de transitar a cada nodo y f(n) la suma del costo +  la heurística 	de cada nodo__
     g_score = {spot: float("inf") for row in grid for spot in row}
     g_score[start] = 0
     f_score = {spot: float("inf") for row in grid for spot in row}
